@@ -9,7 +9,11 @@ pudb = None  # Silence pyflakes
 
 
 class PudbMiddleware(object):
-    def __init__(self):
+    def __init__(self, get_response=None):
+        # django >= 1.10
+        if get_response:
+            self.get_response = get_response
+
         if not getattr(settings, 'DEBUG', False):
             raise MiddlewareNotUsed
 
@@ -28,6 +32,10 @@ class PudbMiddleware(object):
             raise MiddlewareNotUsed
 
         print('PudbMiddleware: DEBUG enabled and pudb found, intercepting all uncaught exceptions.')
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        return response
 
     def process_exception(self, request, exception):
         if isinstance(exception, Http404):
