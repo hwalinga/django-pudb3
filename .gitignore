@@ -1,2 +1,5 @@
 /build
 /dist
+.mypy_cache
+Pipfile
+django_pudb.egg-info
