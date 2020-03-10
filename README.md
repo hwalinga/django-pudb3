@@ -13,12 +13,12 @@ pip install -e .
 django-pudb
 ===========
 
-PuDB integration for Django <https://github.com/akanouras/django-pudb>
+Old project this derives from: <https://github.com/akanouras/django-pudb>
 
 Installing
 ----------
 
-1. Run ``pip install django-pudb``
+1. Install as per above.
 2. In your ``settings.py``:
    - Add ``'django_pudb.PudbMiddleware'`` at/near the end of your ``MIDDLEWARE_CLASSES``
    - Set ``DEBUG_PROPAGATE_EXCEPTIONS = True``
