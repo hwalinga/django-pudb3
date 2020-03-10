@@ -17,9 +17,8 @@ class PudbMiddleware(object):
         if not getattr(settings, 'DEBUG', False):
             raise MiddlewareNotUsed
 
-        # Hack alert :)
-        import traceback
-        if '/threading.py' in traceback.extract_stack()[0][0]:
+        import sys
+        if '--nothreading' not in sys.argv:
             print('PudbMiddleware: Threading not (yet) supported, unloading myself.')
             raise MiddlewareNotUsed
 
