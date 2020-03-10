@@ -1,3 +1,15 @@
+# NOTA BENE
+
+The old django-pudb you find in pip is old and broken. I edited it so that
+it works on new versions of Python and Django. If you want to use this:
+
+```bash
+git clone https://github.com/hwalinga/django-pudb3
+cd django-pudb3
+pip install -e .
+```
+
+
 django-pudb
 ===========
 
