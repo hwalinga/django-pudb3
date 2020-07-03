@@ -20,6 +20,7 @@ class PudbMiddleware(object):
         import sys
         if '--nothreading' not in sys.argv:
             print('PudbMiddleware: Threading not (yet) supported, unloading myself.')
+            print('Please run with runserver --nothreading.')
             raise MiddlewareNotUsed
 
         try:
