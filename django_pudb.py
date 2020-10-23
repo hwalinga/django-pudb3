@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function, unicode_literals
 
+import sys
+
 from django.conf import settings
 from django.core.exceptions import MiddlewareNotUsed
 from django.http import Http404
 
 pudb = None  # Silence pyflakes
+
+
+def err_print(*args, **kwargs):
+    print('!! ERROR:', *args, file=sys.stderr, **kwargs)
 
 
 class PudbMiddleware(object):
@@ -19,8 +25,10 @@ class PudbMiddleware(object):
 
         import sys
         if '--nothreading' not in sys.argv:
-            print('PudbMiddleware: Threading not (yet) supported, unloading myself.')
-            print('Please run with runserver --nothreading.')
+            err_print(
+                'PudbMiddleware: Threading not (yet) supported, unloading myself.'
+            )
+            err_print('Please run with runserver --nothreading.')
             raise MiddlewareNotUsed
 
         try:
@@ -28,7 +36,7 @@ class PudbMiddleware(object):
             import pudb
             assert pudb  # Silence pyflakes
         except ImportError:
-            print('PudbMiddleware: Could not import pudb, unloading myself.')
+            err_print('PudbMiddleware: Could not import pudb, unloading myself.')
             raise MiddlewareNotUsed
 
         print('PudbMiddleware: DEBUG enabled and pudb found, intercepting all uncaught exceptions.')
