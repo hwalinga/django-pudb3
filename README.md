@@ -1,24 +1,22 @@
-# NOTA BENE
-
-The old django-pudb you find in pip is old and broken. I edited it so that
-it works on new versions of Python and Django. If you want to use this:
-
-```bash
-git clone https://github.com/hwalinga/django-pudb3
-cd django-pudb3
-pip install -e .
-```
-
-
 django-pudb
 ===========
 
-Old project this derives from: <https://github.com/akanouras/django-pudb>
+Django middleware to view exceptions in PuDB <https://github.com/hwalinga/django-pudb3>
+
+What is this
+------------
+
+This is Django middleware that will intercept exceptions and puts you in PuDB.
+
+Note that you can already use PuDB with Django without this using `import pudb; pu.db`
+or by running `pudb3 manage.py runserver` (however the latter is a bit clumsy). This piece of middleware is purely to intercept exceptions.
 
 Installing
 ----------
 
-1. Install as per above.
+NB. You should have PuDB installed already.
+
+1. `pip install django-pudb3`
 2. In your ``settings.py``:
    - Add ``'django_pudb.PudbMiddleware'`` at/near the end of your ``MIDDLEWARE_CLASSES``
    - Set ``DEBUG_PROPAGATE_EXCEPTIONS = True``
@@ -37,10 +35,26 @@ Notes
 Changelog
 ---------
 
+0.2.0 (2020-10-23)
+
+- Updated to work with newer versions of Django and Python.
+
 0.1.0 (2014-05-06)
 
 - Initial version.
   Just the middleware; zero magic.
+
+Supports
+--------
+
+Minimal Django version is 1.10.
+
+Despite the name, also still works in Python2.7 last time I checked.
+
+Original project
+----------------
+
+This is an updated version of https://github.com/akanouras/django-pudb
 
 Licence (MIT)
 -------------
