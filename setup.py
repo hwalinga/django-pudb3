@@ -6,20 +6,22 @@ import os
 
 from setuptools import setup
 
+
 def read(*paths):
     """Build a file path from *paths* and return the contents."""
     with open(os.path.join(*paths), 'r') as f:
         return f.read()
 
+
 setup(
-    name='django-pudb',
-    version='0.1.0',
+    name='django-pudb3',
+    version='0.2.0',
     description='PuDB integration for Django.',
     long_description=read('README.md'),
-    url='https://github.com/akanouras/django-pudb/',
+    url='https://github.com/hielkewalinga/django-pudb3/',
     license='MIT',
     author='Antonis Kanouras',
-    author_email='antonis@metadosis.eu',
+    author_email='hielkewaligna@gmail.com',
     py_modules=['django_pudb'],
     include_package_data=True,
     classifiers=[

@@ -45,7 +45,7 @@ Changelog
 Licence (MIT)
 -------------
 
-Copyright (C) 2014 Antonis Kanouras <antonis@metadosis.eu>
+Copyright (C) 2014 Antonis Kanouras <antonis@metadosis.eu> Hielke Walinga <hielkewalinga@gmail.com>
 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy 
