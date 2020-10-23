@@ -6,7 +6,7 @@ Django middleware to view exceptions in PuDB <https://github.com/hwalinga/django
 What is this
 ------------
 
-This is Django middleware that will intercept exceptions and puts you in PuDB.
+This is Django middleware that will intercept exceptions and puts you in PuDB to do further investigation. This is also known as post-mortem debugging.
 
 Note that you can already use PuDB with Django without this using `import pudb; pu.db`
 or by running `pudb3 manage.py runserver` (however the latter is a bit clumsy). This piece of middleware is purely to intercept exceptions.
@@ -55,6 +55,11 @@ Original project
 ----------------
 
 This is an updated version of https://github.com/akanouras/django-pudb
+
+Other
+-----
+
+You might also be interested in https://github.com/0atman/django-pdb-pudb
 
 Licence (MIT)
 -------------
